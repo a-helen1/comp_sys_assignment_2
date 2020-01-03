@@ -1,0 +1,14 @@
+
+#!/user/bin/env python
+import serial
+
+port = "/dev/ttyACM0"
+
+
+s1 = serial.Serial(port, 9600)
+s1.flushInput()
+
+while True:
+        if s1.inWaiting()>0:
+                inputValue=s1.readline().strip().decode("utf-8")
+                print(inputValue)
